@@ -3,7 +3,7 @@ Author: Enrique Esparza
 
 Description: This app allows museum owner, to view, add, update and delete museums and artwork. And add artwork to specific museums
 
-Github:
+Github:https://github.com/EnriqueEsparza/museum_tracker_wDB.git
 Heroku:
 
 Setup: clone Github repo bundle the Gemfile in Terminal/CLI. Run $ bundle run $ ruby app.rb open browser window url: localhost:4567

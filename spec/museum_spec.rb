@@ -48,4 +48,36 @@ describe(Museum) do
     end
   end
 
+  # describe("#artworks") do
+  #   it("returns an array of artworks for that museum") do
+  #     test_museum = Museum.new({:name => "MCA", :id => nil})
+  #     test_museum.save()
+  #     test_artwork = Artwork.new({:description => "Winged Victory", :museum_id => test_museum.id()})
+  #     test_artwork.save()
+  #     test_artwork2 = Artwork.new({:description => "Mona Lisa", :museum_id => test_museum.id()})
+  #     test_artwork2.save()
+  #     expect(test_museum.artworks()).to(eq([test_artwork, test_artwork2]))
+  #   end
+  # end
+
+  describe("#update") do
+    it("lets you update museums in the database") do
+      museum = Museum.new({:name => "MCA", :id => nil})
+      museum.save()
+      museum.update({:name => "Modern Art"})
+      expect(museum.name()).to(eq("Modern Art"))
+    end
+  end
+
+  describe("#delete") do
+    it("lets you delete a museum from the database") do
+      museum = Museum.new({:name => "MCA", :id => nil})
+      museum.save()
+      museum2 = Museum.new({:name => "Modern Art", :id => nil})
+      museum2.save()
+      museum.delete()
+      expect(Museum.all()).to(eq([museum2]))
+    end
+  end
+
 end

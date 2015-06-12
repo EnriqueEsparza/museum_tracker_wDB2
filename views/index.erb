@@ -1,14 +1,16 @@
 <h1>Art Collection's Network of Museums:</h1>
-<p>
+<table>
+
   <form action="/museum/new">
-    <input type="submit" value="Add Museum" style="height:2em; width:12em">
+    <input type="submit" value="Add Museum" style="height:2em; width:22em">
   </form>
-</p>
-<p>
+
+
   <form action="/artwork/new">
-    <input type="submit" value="Add Artwork" style="height:2em; width:12em">
+    <input type="submit" value="Add Artwork" style="height:2em; width:22em; margin: 0em 0em 0em 2em;">
   </form>
-</p>
+
+</table>
 
 <% if @museums.any?() %>
 <p><h3>Select a Museum update info:</h3></p>
@@ -34,6 +36,6 @@
   <% end %>
 </ul>
 <% else %>
-<p><h3>There are currently no artworks listed!.</h3></p>
+<p><h3>There are currently no artworks listed.</h3></p>
 <p>Select Button above to add a Art Piece.</p>
 <% end %>

@@ -1,0 +1,39 @@
+<h1>Art Collection's Network of Museums:</h1>
+<p>
+  <form action="/museum/new">
+    <input type="submit" value="Add Museum" style="height:2em; width:12em">
+  </form>
+</p>
+<p>
+  <form action="/artwork/new">
+    <input type="submit" value="Add Artwork" style="height:2em; width:12em">
+  </form>
+</p>
+
+<% if @museums.any?() %>
+<p><h3>Select a Museum update info:</h3></p>
+
+<ul>
+  <% @museums.each do |museum| %>
+  <li><a href="/museums/<%= museum.id() %>"><%= museum.name() %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p><h3>There are currently no museums listed.</h3></p>
+<p>Select Button above to add a Museum.</p>
+<% end %>
+
+<hr>
+
+<% if @artworks.any?() %>
+<p><h3>Select an Artwork update info:</h3></p>
+
+<ul>
+  <% @artworks.each do |artwork| %>
+  <li><a href="/artworks/<%= artwork.id() %>"><%= artwork.name() %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p><h3>There are currently no artworks listed!.</h3></p>
+<p>Select Button above to add a Art Piece.</p>
+<% end %>

@@ -48,17 +48,17 @@ describe(Museum) do
     end
   end
 
-  # describe("#artworks") do
-  #   it("returns an array of artworks for that museum") do
-  #     test_museum = Museum.new({:name => "MCA", :id => nil})
-  #     test_museum.save()
-  #     test_artwork = Artwork.new({:description => "Winged Victory", :museum_id => test_museum.id()})
-  #     test_artwork.save()
-  #     test_artwork2 = Artwork.new({:description => "Mona Lisa", :museum_id => test_museum.id()})
-  #     test_artwork2.save()
-  #     expect(test_museum.artworks()).to(eq([test_artwork, test_artwork2]))
-  #   end
-  # end
+  describe("#artworks") do
+    it("returns an array of artworks for that museum") do
+      test_museum = Museum.new({:name => "MCA", :id => nil})
+      test_museum.save()
+      test_artwork = Artwork.new({:description => "Winged Victory", :museum_id => test_museum.id()})
+      test_artwork.save()
+      test_artwork2 = Artwork.new({:description => "Mona Lisa", :museum_id => test_museum.id()})
+      test_artwork2.save()
+      expect(test_museum.artworks()).to(eq([test_artwork, test_artwork2]))
+    end
+  end
 
   describe("#update") do
     it("lets you update museums in the database") do

@@ -17,7 +17,24 @@ class Museum
     museums
   end
 
+  define_method(:save) do
+    result = DB.exec("INSERT INTO museums (name) VALUES ('#{@name}') RETURNING id;")
+    @id = result.first().fetch("id").to_i()
+  end
 
+  define_method(:==) do |another_museum|
+    self.name().==(another_museum.name()).&(self.id().==(another_museum.id()))
+  end
+
+  define_singleton_method(:find) do |id|
+    found_museum = nil
+    Museum.all().each() do |museum|
+      if museum.id().==(id)
+        found_museum = museum
+      end
+    end
+    found_museum
+  end
 
 
 end

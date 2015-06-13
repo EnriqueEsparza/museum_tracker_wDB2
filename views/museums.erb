@@ -1,0 +1,18 @@
+<h1>Art Collection's Network of Museums:</h1>
+
+
+<% if @museums.any?() %>
+<p><h3>Select a Museum update info:</h3></p>
+
+<ul>
+  <% @museums.each do |museum| %>
+  <li><%= museum.name() %></li>
+  <% end %>
+</ul>
+<% else %>
+<p><h3>There are currently no museums listed.</h3></p>
+
+<% end %>
+
+<hr>
+<a href="/">home</a>

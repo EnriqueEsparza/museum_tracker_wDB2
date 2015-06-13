@@ -6,8 +6,8 @@
   </form>
 
 
-  <form action="/artwork/new">
-    <input type="submit" value="Add Artwork" style="height:2em; width:22em; margin: 0em 0em 0em 2em;">
+  <form action="/artwork">
+    <input type="submit" value="All Artwork" style="height:2em; width:22em; margin: 0em 0em 0em 2em;">
   </form>
 
 </table>
@@ -26,16 +26,3 @@
 <% end %>
 
 <hr>
-
-<% if @artworks.any?() %>
-<p><h3>Select an Artwork update info:</h3></p>
-
-<ul>
-  <% @artworks.each do |artwork| %>
-  <li><a href="/artworks/<%= artwork.id() %>"><%= artwork.name() %></a></li>
-  <% end %>
-</ul>
-<% else %>
-<p><h3>There are currently no artworks listed.</h3></p>
-<p>Select Button above to add a Art Piece.</p>
-<% end %>

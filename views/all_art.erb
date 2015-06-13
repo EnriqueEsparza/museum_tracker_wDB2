@@ -1,0 +1,19 @@
+<h1>All Art From Our Network of Museums and Galleries</h1>
+<h3>To Delete, please select and submit.</h3>
+<% if @artworks.any?() %>
+<form action="/artwork" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <% @artworks.each() do |artwork| %>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" id="<%= artwork.museum_id() %>" name="artwork_ids[]" value="<%= artwork.museum_id() %>"><%= artwork.description() %>
+    </label>
+  </div>
+  <% end %>
+
+  <button type="submit">Delete Selections</button>
+</form>
+<% end %>
+<form action="/">
+  <input type="submit" value="Home" style="height:2em; width:37em; margin: 2em 0em;">
+</form>

@@ -3,7 +3,7 @@ class Artwork
 
   define_method(:initialize) do |attributes|
     @description = attributes.fetch(:description)
-    @museum_id = attributes.fetch(:museum_id)
+    @museum_id = attributes.fetch(:museum_id).to_i
   end
 
   define_singleton_method(:all) do

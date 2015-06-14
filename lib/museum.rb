@@ -40,9 +40,10 @@ class Museum
     museum_artworks = []
     artworks = DB.exec("SELECT * FROM artworks WHERE museum_id = #{self.id()};")
     artworks.each() do |artwork|
+      id = artwork.fetch("id").to_i
       description = artwork.fetch("description")
       museum_id = artwork.fetch("museum_id").to_i()
-      museum_artworks.push(Artwork.new({:description => description, :museum_id => museum_id}))
+      museum_artworks.push(Artwork.new({:id => id, :description => description, :museum_id => museum_id}))
     end
     museum_artworks
   end

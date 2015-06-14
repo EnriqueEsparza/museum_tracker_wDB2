@@ -1,0 +1,24 @@
+<h1>Are you sure you want to remove %= @artwork.description %> from the permanent collection?</h1>
+<h3>Once %= @artwork.description %> is deleted you cannot undo, it will have to be reentered manually.  Please proceed with caution!</h3>
+
+
+
+
+
+<form class="form-group" action="/artwork/%= @artwork.id %>/delete" method="post">
+  <input type="hidden" name="_method" value="delete">
+
+  <label for="title"><h3>Delete %= @artwork.description %> from collection?</h3></label>
+  <br>
+  <button type="submit" class="btn btn-danger">Delete</button>
+
+</form>
+
+
+
+<hr>
+
+
+<form action="/">
+  <input type="submit" value="Home" style="height:2em; width:37em; margin: 2em 0em;">
+</form>

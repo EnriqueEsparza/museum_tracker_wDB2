@@ -23,13 +23,21 @@ get("/artwork") do
   erb(:all_art)
 end
 
+get("/artwork/:id") do
+  @artwork = Artwork.find(params.fetch("id").to_i())
+  @artworks = Artwork.all
+  erb(:delete_art)
+end
 
-delete("/artwork") do
+delete("/artwork/:id") do
   @artwork = Artwork.find(params.fetch("id").to_i())
   @artwork.delete
   @artworks = Artwork.all
-  erb(:all_art)
+  redirect to '/artwork'
 end
+
+
+
 
 
 post("/") do
@@ -45,7 +53,7 @@ post("/museums/:id") do
 
   description = params.fetch("description")
   museum_id = params.fetch("museum_id").to_i()
-  @artwork = Artwork.new({:description => description, :museum_id => museum_id})
+  @artwork = Artwork.new({:id => nil, :description => description, :museum_id => museum_id})
   @artwork.save()
   @museum = Museum.find(params.fetch("museum_id").to_i())
   @museums = Museum.all

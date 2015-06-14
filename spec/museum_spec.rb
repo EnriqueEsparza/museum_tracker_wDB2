@@ -52,9 +52,9 @@ describe(Museum) do
     it("returns an array of artworks for that museum") do
       test_museum = Museum.new({:name => "MCA", :id => nil})
       test_museum.save()
-      test_artwork = Artwork.new({:description => "Winged Victory", :museum_id => test_museum.id()})
+      test_artwork = Artwork.new({:id => nil, :description => "Winged Victory", :museum_id => test_museum.id()})
       test_artwork.save()
-      test_artwork2 = Artwork.new({:description => "Mona Lisa", :museum_id => test_museum.id()})
+      test_artwork2 = Artwork.new({:id => nil, :description => "Mona Lisa", :museum_id => test_museum.id()})
       test_artwork2.save()
       expect(test_museum.artworks()).to(eq([test_artwork, test_artwork2]))
     end

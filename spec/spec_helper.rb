@@ -2,6 +2,7 @@ require "rspec"
 require "pg"
 require "museum"
 require "artwork"
+require "pry"
 
 DB = PG.connect({:dbname => 'museum_tracker_test'})
 

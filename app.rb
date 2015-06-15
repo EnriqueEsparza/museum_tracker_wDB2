@@ -5,6 +5,7 @@ also_reload("lib/**/*.rb")
 require "./lib/museum"
 require "./lib/artwork"
 require "pg"
+require "pry"
 
 DB = PG.connect({:dbname => "museum_tracker"})
 
@@ -24,17 +25,22 @@ get("/artwork") do
 end
 
 get("/artwork/:id") do
-  @artwork = Artwork.find(params.fetch("id").to_i())
+  artwork = (params.fetch("artwork_ids"))
+  artwork.each() do |art|
+    y = art.to_i
+  x = Artwork.find(y)
+  x.delete
+end
   @artworks = Artwork.all
-  erb(:delete_art)
+  erb(:all_art)
 end
 
-delete("/artwork/:id") do
-  @artwork = Artwork.find(params.fetch("id").to_i())
-  @artwork.delete
-  @artworks = Artwork.all
-  redirect to '/artwork'
-end
+# delete("/artwork/:id") do
+#   @artwork = Artwork.find(params.fetch("art_id").to_i())
+#   @artwork.delete
+#   @artworks = Artwork.all
+#   redirect to '/artwork'
+# end
 
 
 
@@ -65,7 +71,7 @@ end
 get("/museums/:id") do
 
   @museum = Museum.find(params.fetch("id").to_i())
-  @artworks = Artwork.all
+
   erb(:museum)
 end
 
